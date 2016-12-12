@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<html>
+<head>
+  <title> Add Learning and Activities </title>
+  <style type="text/css">
+    input[type="text"]  {
+      width: 95%;
+    }
+    table td {
+      border: 1px solid #000;
+    }
+    h1 {
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="syn_logo.png" alt="Logo">
+  <h1>Weekly Top 5 Report</h1>
+  <br><br>
+  <form action="datalist.php" method="GET" autocomplete="on" onsubmit="return validateLearning('learningTable', 'emailName')">
+    Email (mandatory field): <input type="text" id="ajax" list="Email" placeholder="Email" name="emailName" style="width: 100px;"> @synopsys.com
+    <datalist id="Email"></datalist>
+    <br><br><br>
+    <div class="dynamicInput">
+      <div class="dynamicLearning">
+        <h2>Learning</h2>
+        <i>At least five learning facts need be reported.</i><br><br>
+        <table id="learningTable" width="1000px" height="75px" border="1">
+        <th id="rowLabel">Row</th>
+        <th id="searchLabel">Search Tags (at least one required)</th>
+        <th id="noteLabel">Note (required field)</th>
+        <tr>
+        <td headers="rowLabel"> 1 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="SFDCAccount" placeholder="Account" name="accountName[]" style="width: 500px;">
+        <datalist id="SFDCAccount"></datalist>
+        <input type="text" id="ajax" list="Competition" placeholder="Competition" name="competitionName[]" style="width: 500px;">
+        <datalist id="Competition"></datalist>
+        <input type="text" id="ajax" list="Type" placeholder="Type" name="typeName[]" style="width: 500px;">
+        <datalist id="Type"></datalist>
+        <input type="text" id="ajax" list="Product" placeholder="Product" name="productName[]" style="width: 500px;">
+        <datalist id="Product"></datalist></td>
+        <td headers="noteLabel"><textarea class="scrollabletextbox" style="width: 500px;height:95%" name="note[]"> </textarea></td>
+        </tr>
+        <tr>
+        <td headers="rowLabel"> 2 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="SFDCAccount" placeholder="Account" name="accountName[]" style="width: 500px;">
+        <datalist id="SFDCAccount"></datalist>
+        <input type="text" id="ajax" list="Competition" placeholder="Competition" name="competitionName[]" style="width: 500px;">
+        <datalist id="Competition"></datalist>
+        <input type="text" id="ajax" list="Type" placeholder="Type" name="typeName[]" style="width: 500px;">
+        <datalist id="Type"></datalist>
+        <input type="text" id="ajax" list="Product" placeholder="Product" name="productName[]" style="width: 500px;">
+        <datalist id="Product"></datalist></td>
+        <td headers="noteLabel"><textarea class="scrollabletextbox" style="width: 500px;height:95%" name="note[]"> </textarea></td>
+        </tr><tr>
+        <td headers="rowLabel"> 3 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="SFDCAccount" placeholder="Account" name="accountName[]" style="width: 500px;">
+        <datalist id="SFDCAccount"></datalist>
+        <input type="text" id="ajax" list="Competition" placeholder="Competition" name="competitionName[]" style="width: 500px;">
+        <datalist id="Competition"></datalist>
+        <input type="text" id="ajax" list="Type" placeholder="Type" name="typeName[]" style="width: 500px;">
+        <datalist id="Type"></datalist>
+        <input type="text" id="ajax" list="Product" placeholder="Product" name="productName[]" style="width: 500px;">
+        <datalist id="Product"></datalist></td>
+        <td headers="noteLabel"><textarea class="scrollabletextbox" style="width: 500px;height:95%" name="note[]"> </textarea></td>
+        </tr>
+        <tr>
+        <td headers="rowLabel"> 4 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="SFDCAccount" placeholder="Account" name="accountName[]" style="width: 500px;">
+        <datalist id="SFDCAccount"></datalist>
+        <input type="text" id="ajax" list="Competition" placeholder="Competition" name="competitionName[]" style="width: 500px;">
+        <datalist id="Competition"></datalist>
+        <input type="text" id="ajax" list="Type" placeholder="Type" name="typeName[]" style="width: 500px;">
+        <datalist id="Type"></datalist>
+        <input type="text" id="ajax" list="Product" placeholder="Product" name="productName[]" style="width: 500px;">
+        <datalist id="Product"></datalist></td>
+        <td headers="noteLabel"><textarea class="scrollabletextbox" style="width: 500px;height:95%" name="note[]"> </textarea></td>
+        </tr>
+        <tr>
+        <td headers="rowLabel"> 5 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="SFDCAccount" placeholder="Account" name="accountName[]" style="width: 500px;">
+        <datalist id="SFDCAccount"></datalist>
+        <input type="text" id="ajax" list="Competition" placeholder="Competition" name="competitionName[]" style="width: 500px;">
+        <datalist id="Competition"></datalist>
+        <input type="text" id="ajax" list="Type" placeholder="Type" name="typeName[]" style="width: 500px;">
+        <datalist id="Type"></datalist>
+        <input type="text" id="ajax" list="Product" placeholder="Product" name="productName[]" style="width: 500px;">
+        <datalist id="Product"></datalist></td>
+        <td headers="noteLabel"><textarea class="scrollabletextbox" style="width: 500px;height:95%" name="note[]"> </textarea></td>
+        </tr>
+        </table>
+      </div>
+      <input type="button" value="Add Learning" onClick="addLRow('learningTable');">
+      <br><br><br>
+      <div class="dynamicActivity">
+        <h2>Activity</h2>
+        <table id="activityTable" width="1000px" border="1">
+        <th id="rowLabel">Row</th>
+        <th id="searchLabel">Search Tags</th>
+        <th id="hoursLabel">Hours</th>
+        <th id="productLabel">Product</th>
+        <tr>
+        <td headers="rowLabel"> 1 </td>
+        <td headers="searchLabel"><input type="text" id="ajax" list="Activity" placeholder="Activity" name="activityName[]" style="width: 333px;">
+        <datalist id="Activity"></datalist></td>
+        <td headers="hoursLabel"><input type="text" id="ajax" list="Hours" placeholder="Hours" name ="hoursName[]" style="width: 333px;">
+        <datalist id="Hours"></datalist></td>
+        <td headers="productLabel"><input type="text" id="ajax" list="Product" placeholder="Product" name ="productAName[]" style="width: 333px;">
+        <datalist id="Product"></datalist></td>
+        </tr>
+        </table>
+      </div>
+      <input type="button" value="Add Activity" onClick="addARow('activityTable');">
+      <br><br><br>
+    </div>
+      <input type="submit" value="Submit">
+  </form>
+<br><br><br>
+<p>The below information defines the process for correctly submitting Weekly Top 5 reports from the field.</p><p>The information submitted should be:</p><ol><li>Focused on facts.  These can include details on products, processes, methods and results from activities which occur in the field.  It should not include opinions, insults, offensive language or derogatory statements.</li><li>Where issues or problems are identified, suggested improvements or defined plans for resolutions should be noted.</li><li>At least five facts/week/person should be reported.  Of course, more the five is encouraged and everyone should strive to capture all relevant &quot;news&quot; which is not already widely known throughout SIG.  Field teams should strive to contribute valuable field knowledge on a regular basis, the Weekly Top 5 is the vehicle to enable this.</li></ol><p>There are two main fields of the Weekly Top 5:</p><ol><li>Learnings (this is where the minimum of 5 is required)</li><li>Activities</li></ol><p><u><strong>Learnings</strong></u>:  </p><p style="margin-left: 30.0px;"><u>Description</u>:  These are tangible facts about products, processes, methods and results, our or others (customers, competitors, partners) that we learn from field activities.  At least 5 learnings/week/person are required.</p><p style="margin-left: 30.0px;"><u>Search Tags</u>:  These are relevant search terms which can be tagged on the notes to enable improved search and organized reporting (views).  All relevant tags should be selected to improve the specificity of the information.  Each field is an autocomplete datalist (HTML5) of relevant terms.  Type in the most relevant term (or define a new one of not listed).  There are four separate tags which can be applied:</p><ol><li style="list-style-type: none;background-image: none;"><ol><li>Account:  This is the SFDC account name.  We would like to correlate this information to specific accounts when possible.  </li><li>Competition:  These are competitors or competitor/product pairs which can be selected.</li><li>Product:  The major product categories for SIG.</li><li>Type:  The is the type of fact which is captured.  Please choose the most relevant one from the list:<ol><li><span>Product Defect</span></li><li><span>Product Deficiency</span></li><li><span>Product Enhancement</span></li><li><span>Competitor Advantage</span></li><li><span>Competitor Deficiency</span></li><li><span>Customer Challenge</span></li><li><span>Customer Issue</span></li><li><span>Customer Solution</span></li><li><span>Customer Experience</span></li><li><span>Process Issue</span></li><li><span>Resource Issue</span></li><li><span>Market Opportunity</span></li></ol></li></ol></li></ol><p style="margin-left: 30.0px;"><span><u>Facts</u>:</span></p><p style="margin-left: 30.0px;"><span>An expandable text box for clearly and concisely stating the facts which were learned.  Bulleted lists are </span>acceptable, long narratives should be avoided.</p><p><u><strong>Activities</strong></u>:  </p><p style="margin-left: 30.0px;"><u>Description</u>:  These are activities outside of the primary role of the individual which will be tracked to look for inefficiencies (time spent doing things which are not directly related to results).  Each activity should be aggregated for the entire week.  Estimates rounded to a half-hour of time are sufficient.  Examples are:  administrative time to fill out the Weekly Top 5, travel time (to/from customer visits), personal development time for training.</p><p style="margin-left: 30.0px;"><u>Fields</u>:</p><ol><li style="list-style-type: none;background-image: none;"><ol><li>Activity:<ol><li><span>ETO - time out of the office for illness, vacation, bereavement, other.</span></li><li><span>Technical Support - time spent on helping to diagnose, triage and/or validate issues in licensed product accounts.  Should have a related Case # with the TS team.</span></li><li><span>Administration - any time spent reporting or other administrative tasks (Weekly Top 5, SFDC Updates, Expense Reports, </span></li><li><span>Training - time spent in training (self-paced studying, online training, instructor lead training) on job related or required topics</span></li><li><span>Travel - </span></li></ol></li><li><span>Hours:  This is an estimate of the hours spent on the activity during the week being reported.  It should be totaled for the week across all occurrences and rounded to the nearest half-hour.  </span></li><li><span>Product:  If the activity can be related to a specific product (like Technical Support or Training for Coverity), then it should be tagged appropriately.</span></li></ol></li></ol><p> </p><p> </p><p> </p>
+
+<script type="text/javascript">
+
+  // global variable to hold on the JSON data
+  var jsonData;
+
+  function validateLearning (tableID, emailName) {
+    var table = document.getElementById(tableID);
+
+    // calculate row count by the how many rows are in table
+    // exclude the top row
+    var rowCount = table.rows.length - 1;
+
+    if (rowCount < 5) {
+      if (rowCount == 1) {
+        alert ("Only " + rowCount + " learning activity inputted.  Must have at least 5.");    
+      } else {
+        alert ("Only " + rowCount + " learning activities inputted.  Must have at least 5.");    
+      }
+
+      return false;
+    }
+
+  // need to check the cells to make sure there is some input
+  for (var r = 1; r <= table.rows.length; r++) {
+    if (((!table.rows[r].cells[1].children[0].value) &&
+        (!table.rows[r].cells[1].children[2].value) &&  
+        (!table.rows[r].cells[1].children[4].value) &&
+        (!table.rows[r].cells[1].children[6].value)) || 
+        ((!table.rows[r].cells[2].children[0].value) ||
+         (table.rows[r].cells[2].children[0].value == " "))) {
+        alert ("Input a learning activity in row " + r + ".  You must select a Search tag and add a note.");
+        return false;
+      }
+    }
+
+    if (!emailName || emailName.length == 0) {
+      alert ("Must input email name");
+
+      return false;
+    } 
+  }
+
+  function updateElementWithDataList (name, dataId) {
+    dataList = document.getElementById(name);
+
+    for (var i = 0; i < jsonData.datalists[dataId].length; i++) {
+      // Create a new <option> element.
+      var option = document.createElement('option');
+
+      // Set the value using the item in the JSON array.
+      option.value = jsonData.datalists[dataId][i].option;
+
+      // Add the <option> element to the <datalist>.
+      dataList.appendChild(option);
+    }
+  }
+
+  function createElementAttributes (element, name, nameArr, dataList, placeHolder, style) {
+    // set attributes of the text field
+
+    element.setAttribute ("type", "text");
+    element.setAttribute ("id", name);
+    element.setAttribute ("name", nameArr);
+    element.setAttribute ("list", dataList);  
+    element.setAttribute ("placeholder", placeHolder);
+    element.setAttribute ("style", style);
+  }
+
+  // add learning row
+  function addLRow(tableID) {
+    var element;
+    var cell;
+    var dataList;
+    var name;
+    var table = document.getElementById(tableID);
+
+    // calculate row count by the how many rows are in table
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    // ----------- this is for column 1 ------------------------
+    // insert row #
+    cell = row.insertCell(0);
+    cell.innerHTML = rowCount;
+
+    // ----------- this is for column 2 ------------------------
+
+    cell = row.insertCell(1);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Account" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "accountName[]", "SFDCAccount", "Account", "width: 500px");
+
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "SFDCAccount"); 
+
+   // cell = row.insertCell(2);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Competition" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "competitionName[]", "Competition", "Competition", "width: 500px");
+    
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Competition");
+
+    // cell = row.insertCell(3);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Type" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "typeName[]", "Type", "Type", "width: 500px");
+    
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Type");
+
+    // cell = row.insertCell(4)
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Product" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "productName[]", "Product", "Product", "width: 500px");
+    
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Product");
+
+    // ----------- this is for column 3 ------------------------
+    cell = row.insertCell(2);
+    element = document.createElement("textarea");
+    element.setAttribute ("name", "note[]");
+    element.setAttribute ("style", "width: 500px;height:95%");
+    cell.appendChild(element);
+  }
+
+  // add activity row
+  function addARow(tableID) {
+    var element;
+    var cell;
+    var dataList;
+    var table = document.getElementById(tableID);
+
+    // calculate row count by the how many rows are in table
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+
+    // ----------- this is for column 1 ------------------------
+    // insert row #
+    cell = row.insertCell(0);
+    cell.innerHTML = rowCount;
+
+    // ----------- this is for column 2 ------------------------
+
+    cell = row.insertCell(1);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Activity" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "activityName[]", "Activity", "Activity", "width: 333px");
+
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Activity");
+
+    // ----------- this is for column 3 ------------------------
+    cell = row.insertCell(2);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "Hours" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "hoursName[]", "Hours", "Hours", "width: 333px");
+    
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Hours");
+
+    // ----------- this is for column 4 ------------------------
+    cell = row.insertCell(3);
+    element = document.createElement("input");
+
+    // create a unique id
+    name = "ProductA" + rowCount;
+
+    // set the attributes for the element
+    createElementAttributes (element, name, "productAName[]", "Product", "Product", "width: 333px");
+    
+    // add element to the cell
+    cell.appendChild(element);
+
+    // get the datalist from the JSON data and append to element
+    updateElementWithDataList (name, "Product");
+  }
+
+  // below is code that is executed when page loads
+  // (first rows)
+
+  // Get the <datalist> and <input> elements.
+  var input = document.getElementById('ajax');
+
+  // Create a new XMLHttpRequest.
+  var request = new XMLHttpRequest();
+
+  // Handle state changes for the request.
+  request.onreadystatechange = function(response) {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+
+        // Parse the JSON file
+        jsonData = JSON.parse(request.responseText);
+
+        // Loop over the JSON array of datalists.
+        for(var type in jsonData.datalists) {
+          var dataList = document.getElementById(type);
+          for (var i = 0; i < jsonData.datalists[type].length; i++) {
+            // Create a new <option> element.
+            var option = document.createElement('option');
+            // Set the value using the item in the JSON array.
+            option.value = jsonData.datalists[type][i].option;
+
+            // Add the <option> element to the <datalist>.
+            dataList.appendChild(option);
+          }
+        }
+      } else {
+        // An error occured :(
+        input.placeholder = "Couldn't load datalist options :(";
+      }
+    }
+  };
+
+  // Set up and make the request.
+  request.open('GET', 'datalist-elements.json', true);
+  request.overrideMimeType("application/json");
+  request.send();
+
+</script>
+</body>
+</html>
